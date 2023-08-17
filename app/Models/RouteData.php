@@ -12,8 +12,29 @@ class RouteData extends Model
 
     protected $table = 'route_data';
 
+    protected $fillable = [
+        'route_id',
+        'calendar_id',
+        'vinculation_route',
+        'route_circular',
+        'date_init',
+        'date_finish',
+        'mon',
+        'tue',
+        'wed',
+        'thu',
+        'fri',
+        'sat',
+        'sun'
+    ];
+
     public function route() : BelongsTo
     {
         return $this->belongsTo(Route::class);
+    }
+
+    public function calendar() : BelongsTo
+    {
+        return $this->belongsTo(Calendar::class);
     }
 }

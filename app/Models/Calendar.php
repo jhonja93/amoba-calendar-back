@@ -12,4 +12,19 @@ class Calendar extends Model
     protected $fillable = [
 		"name"
     ];
+
+    public function calendar_days_disabled()
+    {
+        return $this->hasMany(CalendarDaysDisabled::class);
+    }
+
+    public function route_data()
+    {
+        return $this->hasMany(RouteData::class);
+    }
+
+    public function days_disabled()
+    {
+        return $this->hasMany(CalendarDaysDisabled::class)->pluck('day');
+    }
 }

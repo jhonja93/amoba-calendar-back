@@ -23,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::middleware(['auth:sanctum'])->post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/v1/routes/{id}', [RouteController::class, 'index'])->name('routes.index');
 Route::prefix('/v1')->middleware('auth:sanctum')->group(function () {
 });
+Route::post('/routes/{id}', [RouteController::class, 'index'])->name('routes.index');
